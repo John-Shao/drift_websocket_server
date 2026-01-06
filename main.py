@@ -16,8 +16,10 @@ from auth_handler import authenticate_device
 from models import MessageType, EventType
 
 # 配置日志
+log_level=logging.DEBUG if settings.DEBUG else logging.WARNING
+
 logging.basicConfig(
-    level=logging.DEBUG if settings.DEBUG else logging.WARNING,
+    level=log_level,
     format='%(asctime)s - %(levelname)s - %(name)s - %(message)s',
     datefmt='%Y-%m-%d %H:%M:%S'
 )
@@ -215,5 +217,5 @@ if __name__ == "__main__":
         reload_dirs=["./app/"],
         ws_ping_interval=settings.WEBSOCKET_PING_INTERVAL,
         ws_ping_timeout=settings.WEBSOCKET_PING_TIMEOUT,
-        log_level="info" if settings.DEBUG else "warning"
+        log_level=log_level
     )
