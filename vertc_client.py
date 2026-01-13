@@ -248,7 +248,7 @@ if __name__ == "__main__":
 
     test_mode = TestMode.VIDEO_STOP
 
-    if test_mode == TestMode.AUDIO_STOP:
+    if test_mode == TestMode.AUDIO_START:
         # 测试启动合流转推
         response = client.start_push_mixed_stream(
             room_id="100",
