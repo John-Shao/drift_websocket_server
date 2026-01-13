@@ -246,7 +246,7 @@ if __name__ == "__main__":
         VIDEO_START = 20
         VIDEO_STOP =  21
 
-    test_mode = TestMode.VIDEO_STOP
+    test_mode = TestMode.AUDIO_STOP  # 修改此处以切换测试模式
 
     if test_mode == TestMode.AUDIO_START:
         # 测试启动合流转推
@@ -270,8 +270,8 @@ if __name__ == "__main__":
         # 测试启动实时对话式AI
         response = client.start_voice_chat(
             room_id="100",
-            bot_id="bot_007",
-            user_id="100",
+            bot_id="jusi_00a4b5697e3d16796b818d656ccea433",
+            user_id="100",  # 与AI对话的用户ID
             task_id="300",
             dialog_id="dialog_123"
         )
@@ -306,8 +306,8 @@ if __name__ == "__main__":
         # 测试启动音视频互动智能体
         response = client.start_video_chat(
             room_id="100",
-            bot_id="bot_008",
-            user_id="user_615",
+            bot_id="jusi_00a4b5697e3d16796b818d656ccea433",
+            user_id="user_615",  # 与智能体对话的用户ID
             task_id="400"
         )
         print(response)

@@ -27,7 +27,7 @@ class VertcService(Service):
     @staticmethod
     def get_service_info():
         service_info = ServiceInfo("rtc.volcengineapi.com", {'Accept': 'application/json'},
-                                   Credentials('', '', 'rtc', settings.volc_region), 30, 30)
+                                   Credentials('', '', 'rtc', settings.volc_region), 3000, 3000)
         return service_info
 
     @staticmethod
