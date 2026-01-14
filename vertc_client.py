@@ -240,6 +240,8 @@ class VertcClient:
 if __name__ == "__main__":
     client = VertcClient()
 
+    jusi_device_uid = "4ee0ebf6ac0b49bc9825c7e0107d1e31"  # 巨思设备的用户ID
+
     class TestMode:
         AUDIO_START = 10
         AUDIO_STOP =  11
@@ -252,7 +254,7 @@ if __name__ == "__main__":
         # 测试启动合流转推
         response = client.start_push_mixed_stream(
             room_id="100",
-            user_id="100",
+            user_id=jusi_device_uid,  # 排除的用户ID
             task_id="200",
             push_url=f"rtmp://{settings.audio_rtmp_host}:{settings.audio_rtmp_port}/live/00a4b5697e3d16796b818d656ccea433"
         )
@@ -261,7 +263,7 @@ if __name__ == "__main__":
         # 测试启动在线媒体流输入
         response = client.start_relay_stream(
             room_id="100",
-            user_id="100",
+            user_id=jusi_device_uid,  # 在线媒体流输入的用户ID
             task_id="100",
             stream_url=f"rtmp://{settings.video_rtmp_host}:{settings.video_rtmp_port}/live/00a4b5697e3d16796b818d656ccea433"
         )
@@ -270,8 +272,8 @@ if __name__ == "__main__":
         # 测试启动实时对话式AI
         response = client.start_voice_chat(
             room_id="100",
-            bot_id="jusi_00a4b5697e3d16796b818d656ccea433",
-            user_id="100",  # 与AI对话的用户ID
+            bot_id="bot_008",  # 智能体的用户ID
+            user_id=jusi_device_uid,  # 与AI对话的用户ID
             task_id="300",
             dialog_id="dialog_123"
         )
