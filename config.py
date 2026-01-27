@@ -1,6 +1,4 @@
-import os
 from pydantic_settings import BaseSettings
-from typing import Optional
 
 class Settings(BaseSettings):
     
@@ -52,11 +50,11 @@ class Settings(BaseSettings):
     MAX_FILE_SIZE: int = 10 * 1024 * 1024  # 10MB
     ALLOWED_IMAGE_TYPES: list = ["image/jpeg", "image/png"]
     
+    # 指定配置文件和相关参数
     class Config:
-        # 指定 .env 文件的编码
-        env_file_encoding = 'utf-8'
-
-        # (可选) 如果你的 .env 文件不叫 ".env"，可以在这里指定
         env_file = ".env"
+        env_file_encoding = 'utf-8'
+        case_sensitive = False
 
+# 创建配置实例
 settings = Settings()
